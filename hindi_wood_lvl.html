@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Game Map</title>
+    <link rel="stylesheet" href="hindi_wood_lvl.css">
+</head>
+<body>
+    <img src="logo1.png" alt="Logo" class="logo">
+    <div class="map-container">
+        <img src="learnbackimg.png" alt="Game Map" class="map-image" usemap="#game-map">
+        <map name="game-map">
+            <area shape="circle" coords="31%,27%,5%" href="#" alt="Level 1">
+            <area shape="circle" coords="43%,40%,5%" href="#" alt="Level 2">
+            <area shape="circle" coords="38%,55%,5%" href="#" alt="Level 3">
+            <area shape="circle" coords="33%,70%,5%" href="#" alt="Level 4">
+            <area shape="circle" coords="55%,40%,5%" href="#" alt="Star">
+            <area shape="circle" coords="28%,85%,5%" href="#" alt="Target">
+        </map>
+        <a href="#" class="map-area" id="level1" data-title="Level 1"></a>
+        <a href="#" class="map-area" id="level2" data-title="Level 2"></a>
+        <a href="#" class="map-area" id="level3" data-title="Level 3"></a>
+        <a href="#" class="map-area" id="level4" data-title="Level 4"></a>
+        <a href="#" class="map-area" id="star" data-title="Star"></a>
+        <a href="#" class="map-area" id="target" data-title="Target"></a>
+    </div>
+</body>
+</html>

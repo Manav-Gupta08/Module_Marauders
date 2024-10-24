@@ -1,0 +1,164 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+.backimg img {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    z-index: -1;
+}
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+}
+.navbar-container {
+    background-color: white;
+    width: 100%;
+    z-index: 2;
+}
+.navbar-logo {
+    height: 100px;
+    width: auto;
+}
+.navbar-nav {
+    gap: 1rem;
+}
+.nav-item{
+    font-size: 25px;
+}
+.login {
+    background-color: white;
+    margin: 5rem auto;
+    width: 90%;
+    max-width: 400px;
+    z-index: 3;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.login-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+#Email, #Password {
+    border: 2px solid rgba(155, 150, 150, 0.898);
+    border-radius: 6px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 1rem;
+}
+.forgot {
+    border: none;
+    background-color: transparent;
+    color: #007bff;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+.forgot:hover {
+    text-decoration: underline;
+}
+.submit {
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: none;
+    background-color: #FDCD84;
+}
+.submit:hover {
+    background-color: #FFC789;
+}
+.divider {
+    text-align: center;
+    position: relative;
+    margin: 1.5rem 0;
+}
+.divider::before, .divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 1px;
+    background: gray;
+}
+.divider::before {
+    left: 0;
+}
+.divider::after {
+    right: 0;
+}
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+.fa-facebook, .fa-apple, .fa-google {
+    font-size: 2rem;
+}
+.fa-facebook {
+    color: #3b5998;
+    margin-left:0%;
+}
+.fa-apple {
+    color: #000;
+    margin-left:18%;
+}
+.fa-google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-left:18%;
+}
+.footer {
+    background-color: #f8f9fa;
+    padding: 2rem 1rem;
+}
+.footer a {
+    color: #343a40;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+.footer .social-icons i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: #6c757d;
+}
+.footer .social-icons i:hover {
+    color: #343a40;
+}
+@media (max-width: 768px) {
+    .navbar-logo {
+        height: 50px;
+    }
+    .login {
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .navbar-logo {
+        height: 40px;
+    }
+    .login {
+        padding: 1rem;
+    }
+    .submit {
+        height: 3rem;
+    }
+    .fa-facebook, .fa-apple, .fa-google {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Help Form</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar-container {
+            background-color: white;
+            width: 100%;
+            z-index: 2;
+        }
+        .navbar-logo {
+            height: 100px;
+            width: auto;
+        }
+        .navbar-nav {
+            gap: 1rem;
+        }
+        .nav-item{
+            font-size: 25px;
+        }
+
+        .form-wrapper {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%; 
+            margin: 20px auto; 
+            display: flex;
+            flex-direction: row; 
+        }
+
+        .robot-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 20px;
+        }
+
+        .robot-img img {
+
+            width: 110%;
+            height:50%;
+        }
+
+        .form-container {
+            flex: 2;
+        }
+
+        h1 {
+            text-align: left;
+            color: #2d2d2d;
+        }
+
+        p {
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+
+        @media (max-width: 768px) {
+            .form-wrapper {
+                flex-direction: column; 
+                padding: 15px;
+            }
+
+            .robot-img {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .robot-img img {
+                max-width: 100px; 
+            }
+
+            input[type="text"],
+            input[type="email"],
+            select,
+            textarea {
+                padding: 8px;
+            }
+
+            button {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 18px;
+            }
+            
+            p {
+                font-size: 12px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+        
+        .footer {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            margin-top: auto; 
+        }
+
+        .footer a {
+            color: #343a40;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .social-icons i {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #6c757d;
+        }
+
+        .footer .social-icons i:hover {
+            color: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="Homepage.html">
+                    <img src="logo.png" alt="Logo" class="navbar-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="About_us.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="languages.html">Languages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Help_page.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center mt-3 mt-lg-0">
+                        <div class="dropdown me-lg-3 mb-2 mb-lg-0">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe"></i> Website Language
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="Login.html">Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+<div class="form-wrapper">
+    <div class="robot-img">
+        <img src="robot.png" alt="Need Tech Help?">
+    </div>
+    <div class="form-container">
+        <h1>What can we help you with?</h1>
+        <p>Please describe the issue you are experiencing in as much detail as possible. This will help us understand what's going on.</p>
+        
+        <form action="submit_form.php" method="POST">
+            <label for="email">Your Email Address*</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject*</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="description">Description*</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="issue-type">Type of issue*</label>
+            <select id="issue-type" name="issue_type" required>
+                <option value="">PLEASE SELECT ONE...</option>
+                <option value="technical">Technical</option>
+                <option value="billing">Billing</option>
+                <option value="general">General Inquiry</option>
+            </select>
+
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+</div>
+<footer class="footer mt-auto">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Connect with us on social media</h5>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61567858491959&ref=xav_ig_profile_web"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/talk_trek"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/talktrek.co/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/talktrek-learn-513463334/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Useful Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <h5>Contact Us</h5>
+                <p>Email: talktrek.co@gmail.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 TalkTrek. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="Help_page.js"></script>
+</body>
+</html>

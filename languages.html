@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="languages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Language Courses</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+        }
+        .courses-container {
+            min-height:80vh;
+            width:60vw;
+            margin-left:15%;
+        }
+
+        .heading {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        .navbar-container {
+            background-color: white;
+            width: 100%;
+            z-index: 2;
+            border-bottom: 2px solid black;
+        }
+        .navbar-logo {
+            height: 100px;
+            width: auto;
+        }
+        .navbar-nav {
+            gap: 1rem;
+        }
+        .nav-item{
+            font-size: 25px;
+        }
+        .course-box {
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-bottom:30px;
+            height:150px;
+            width:150px;
+            background-color: rgb(227, 227, 227);
+            }
+
+        .course-box img {
+            width: 80px;
+            height:60px;
+            margin-bottom: 10px;
+        }
+
+        .course-box h3 {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        .course-box:hover {
+            transform: translateY(-10px);
+            border-color: #777;
+        }
+
+        a{
+            color:black;
+            text-decoration: none;
+            font-family: sans-serif;
+        }
+        .col-md-4{
+            justify-self: center;
+        }
+        .row{
+            margin-left: 13%;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="Homepage.html">
+                    <img src="logo.png" alt="Logo" class="navbar-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="About_us.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="languages.html">Languages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Help_page.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center mt-3 mt-lg-0">
+                        <div class="dropdown me-lg-3 mb-2 mb-lg-0">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe"></i> Website Language
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="Login.html">Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <h1 class="heading">Language Courses</h1>
+    <div class="container courses-container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="hindi_wood_lvl.html" class="course-box">
+                    <img src="/Project/flags/hindi.png" alt="Hindi">
+                    <h3>Hindi</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="course-box">
+                    <img src="/Project/flags/french.png" alt="French">
+                    <h3>French</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="course-box">
+                    <img src="/Project/flags/german.png" alt="German">
+                    <h3>German</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="course-box">
+                    <img src="/Project/flags/latin.png" alt="Latin">
+                    <h3>Latin</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="course-box">
+                    <img src="/Project/flags/spanish.png" alt="Spanish">
+                    <h3>Spanish</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="course-box">
+                    <img src="/Project/flags/italian.png" alt="Italian">
+                    <h3>Italian</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="course-box">
+                    <img src="/Project/flags/russian.png" alt="Russian">
+                    <h3>Russian</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="course-box">
+                    <img src="/Project/flags/english.png" alt="English">
+                    <h3>English</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="course-box">
+                    <img src="/Project/flags/dutch.png" alt="Dutch">
+                    <h3>Dutch</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="languages.js"></script>
+</body>
+
+</html>

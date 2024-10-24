@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+.logo {
+    position: absolute;
+    top: 0%; 
+    left: 0%; 
+    width: 12%; 
+    height: auto; 
+    z-index: 10; 
+}
+.map-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+.map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.map-area {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.map-area:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.map-area::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.map-area:hover::after {
+    opacity: 1;
+}
+#level1 { top: 7%; left: 42%; width: 6%; height: 0%; padding-bottom: 6%; }
+#level2 { top: 22%; left: 49%; width: 6%; height: 0%; padding-bottom: 6%;  }
+#level3 { top: 40%; left: 45%; width: 6%; height: 0%; padding-bottom: 6%;  }
+#level4 { top: 50%; left: 35.5%; width: 6%; height: 0%; padding-bottom: 7%;  }
+#star { top: 36%; left: 54%; width: 7%; height: 0%; padding-bottom: 7%;  }
+#target { top: 67%; left: 49%; width: 7%; height: 0%; padding-bottom: 7%;  }

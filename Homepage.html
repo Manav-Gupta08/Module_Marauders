@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalkTrek - Language Learning</title>
+    <link rel="stylesheet" href="Homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="Homepage.html">
+                    <img src="logo.png" alt="Logo" class="navbar-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="About_us.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="languages.html">Languages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Help_page.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center mt-3 mt-lg-0">
+                        <div class="dropdown me-lg-3 mb-2 mb-lg-0">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe"></i> Website Language
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                            </ul>
+                        </div>
+                        <div id="loginContainer">
+                            <a class="btn btn-primary" href="#" id="loginButton">Login</a>
+                        </div>
+                        <div id="profileContainer" class="d-none">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i> Profile
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                                    <li><a class="dropdown-item" href="#">My Account</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#" id="logoutButton">Log out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero">
+    
+        <div class="container">
+            <h1>Learn a New Language with TalkTrek</h1>
+            <p>Unlock new opportunities and connect with the world through language learning</p>
+            <a href="#courses" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features" id="about">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose TalkTrek?</h2>
+            <div class="row">
+                <div class="col-md-4 feature-box">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from native speakers and experienced language teachers</p>
+                </div>
+                <div class="col-md-4 feature-box">
+                    <i class="fas fa-comments"></i>
+                    <h3>Interactive Lessons</h3>
+                    <p>Engage in real conversations and practical exercises</p>
+                </div>
+                <div class="col-md-4 feature-box">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Learn Anywhere</h3>
+                    <p>Access your courses on any device, anytime, anywhere</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses" id="courses">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Popular Courses</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card course-card">
+                        <img src="photos/spain_cult.jpg" class="card-img-top" alt="Spanish Course">
+                        <div class="card-body">
+                            <h5 class="card-title">Spanish for Beginners</h5>
+                            <p class="card-text">Start your journey in Spanish with our comprehensive beginner's course.</p>
+                            <a href="#" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card course-card">
+                        <img src="photos/hindi_cult.jpg" class="card-img-top" alt="Mandarin Course">
+                        <div class="card-body">
+                            <h5 class="card-title">Hindi for Culture</h5>
+                            <p class="card-text">Learn Hindi for professional settings and business interactions.</p>
+                            <a href="#" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card course-card">
+                        <img src="photos/french_cult.jpeg" class="card-img-top" alt="French Course">
+                        <div class="card-body">
+                            <h5 class="card-title">French Intermediate</h5>
+                            <p class="card-text">Take your French to the next level with our intermediate course.</p>
+                            <a href="#" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-md-4">
+                    <h5>Connect with us on social media</h5>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61567858491959&ref=xav_ig_profile_web"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/talk_trek"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/talktrek.co/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/talktrek-learn-513463334/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Useful Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h5>Contact Us</h5>
+                    <p>Email: talktrek.co@gmail.com</p>
+                    <p>Phone: +1 (123) 456-7890</p>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <p>&copy; 2024 TalkTrek. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function() {
+                    navbarCollapse.classList.toggle('show');
+                });
+            }
+
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            
+            const languageDropdown = document.getElementById('languageDropdown');
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const selectedLanguage = this.textContent;
+                    languageDropdown.textContent = selectedLanguage;
+                    
+                    console.log(`Language changed to: ${selectedLanguage}`);
+                });
+            });
+
+            
+            const loginButton = document.getElementById('loginButton');
+            loginButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Login functionality to be implemented');
+            });
+        });
+    </script>
+</body>
+</html>
