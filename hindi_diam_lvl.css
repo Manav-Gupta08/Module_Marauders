@@ -31,6 +31,7 @@ body {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
 }
 .map-area:hover {
     background-color: rgba(255, 255, 255, 0.1);
@@ -59,4 +60,3 @@ body {
 #level4 { top: 50%; left: 35.5%; width: 6%; height: 0%; padding-bottom: 7%;  }
 #star { top: 36%; left: 54%; width: 7%; height: 0%; padding-bottom: 7%;  }
 #target { top: 67%; left: 49%; width: 7%; height: 0%; padding-bottom: 7%;  }
-#next { top: 60%; left: 66%; width: 7%; height: 0%; padding-bottom: 7%;  }

@@ -20,10 +20,10 @@ body, html {
     font-size: 25px;
 }
 .hero {
-    background-image: url('photos/mainback.jpg');
+    background-image: url('photos/mainback1.jpg');
     background-size: cover;
     background-position: center;
-    color: white;
+    color: black;
     text-align: center;
     padding: 100px 0;
 }
