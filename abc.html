@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Basic French Words</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #e6f3ff, #c1e0ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            color: #1e40af;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+        p {
+            text-align: center;
+            color: #3b82f6;
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            margin-bottom: 2rem;
+        }
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .french-word {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .speak-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .speak-icon {
+            width: 24px;
+            height: 24px;
+            fill: #3b82f6;
+        }
+        .translation {
+            font-size: 1.125rem;
+            color: #4b5563;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .card:hover .translation {
+            opacity: 1;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+        .nav-button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex: 1;
+            max-width: 200px;
+        }
+        .nav-button:hover {
+            background-color: #2563eb;
+        }
+        .nav-button:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+        .quiz-container {
+            display: none;
+            margin-top: 2rem;
+        }
+        .quiz-question {
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            color: #1e40af;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .quiz-option {
+            background-color: white;
+            border: 2px solid #3b82f6;
+            border-radius: 0.25rem;
+            padding: 0.75rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .quiz-option:hover {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .quiz-option.correct {
+            background-color: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        .quiz-option.incorrect {
+            background-color: #ef4444;
+            color: white;
+            border-color: #ef4444;
+        }
+        .quiz-result {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #1e40af;
+        }
+        .current-score {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            color: #4b5563;
+        }
+        @media (max-width: 640px) {
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Learn Basic French Words - Level <span id="currentLevel">1</span></h1>
+        <p id="levelDescription">Hover over the cards to see translations and click the speaker icon to hear pronunciation.</p>
+        <div class="word-grid" id="wordGrid"></div>
+        <div class="quiz-container" id="quizContainer">
+            <h2 class="quiz-question" id="quizQuestion"></h2>
+            <div class="quiz-options" id="quizOptions"></div>
+            <p class="quiz-result" id="quizResult"></p>
+            <p class="current-score" id="currentScore"></p>
+        </div>
+        <div class="navigation">
+            <button id="backButton" class="nav-button">Back to Levels</button>
+            <button id="prevLevelButton" class="nav-button">Previous Level</button>
+            <button id="nextButton" class="nav-button">Start Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        const frenchWords = [
+            [
+                { word: 'Bonjour', translation: 'Hello' },
+                { word: 'Merci', translation: 'Thank you' },
+                { word: 'Au revoir', translation: 'Goodbye' },
+                { word: 'Oui', translation: 'Yes' },
+                { word: 'Non', translation: 'No' },
+                { word: 'S\'il vous plaît', translation: 'Please' },
+                { word: 'Excusez-moi', translation: 'Excuse me' },
+                { word: 'De rien', translation: 'You\'re welcome' },
+                { word: 'Comment allez-vous?', translation: 'How are you?' },
+                { word: 'Bien', translation: 'Good' }
+            ],
+            [
+                { word: 'Pomme', translation: 'Apple' },
+                { word: 'Chat', translation: 'Cat' },
+                { word: 'Chien', translation: 'Dog' },
+                { word: 'Maison', translation: 'House' },
+                { word: 'Eau', translation: 'Water' },
+                { word: 'Pain', translation: 'Bread' },
+                { word: 'Livre', translation: 'Book' },
+                { word: 'Table', translation: 'Table' },
+                { word: 'Chaise', translation: 'Chair' },
+                { word: 'Porte', translation: 'Door' }
+            ],
+            [
+                { word: 'Voiture', translation: 'Car' },
+                { word: 'École', translation: 'School' },
+                { word: 'Ami', translation: 'Friend' },
+                { word: 'Famille', translation: 'Family' },
+                { word: 'Travail', translation: 'Work' },
+                { word: 'Heure', translation: 'Hour' },
+                { word: 'Jour', translation: 'Day' },
+                { word: 'Semaine', translation: 'Week' },
+                { word: 'Mois', translation: 'Month' },
+                { word: 'Année', translation: 'Year' }
+            ],
+            [
+                { word: 'Épanouissement', translation: 'Fulfillment' },
+                { word: 'Développement durable', translation: 'Sustainable development' },
+                { word: 'Mondialisation', translation: 'Globalization' },
+                { word: 'Apprentissage automatique', translation: 'Machine learning' },
+                { word: 'Cryptomonnaie', translation: 'Cryptocurrency' },
+                { word: 'Réalité augmentée', translation: 'Augmented reality' },
+                { word: 'Biodiversité', translation: 'Biodiversity' },
+                { word: 'Neurosciences', translation: 'Neuroscience' },
+                { word: 'Géopolitique', translation: 'Geopolitics' },
+                { word: 'Entrepreneuriat', translation: 'Entrepreneurship' }
+            ]
+        ];
+
+        let currentLevel = 0;
+        let quizStarted = false;
+        let currentQuizQuestion = 0;
+        let quizScore = 0;
+
+        function createWordCard(word, translation) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="card-header">
+                    <span class="french-word">${word}</span>
+                    <button class="speak-button" aria-label="Pronounce ${word}">
+                        <svg class="speak-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5355 8.46448C17.4881 10.4171 17.4881 13.5829 15.5355 15.5355M18.364 5.63599C21.8787 9.15071 21.8787 14.8492 18.364 18.3639M9.88331 16.3571L6.27531 13.6961C6.10493 13.5703 5.89776 13.5 5.68377 13.5H3C2.44772 13.5 2 13.0523 2 12.5V11.5C2 10.9477 2.44772 10.5 3 10.5H5.68377C5.89776 10.5 6.10493 10.4297 6.27531 10.3039L9.88331 7.64288C10.5665 7.13404 11.5 7.61333 11.5 8.45774V15.5423C11.5 16.3867 10.5665 16.8659 9.88331 16.3571Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="translation">${translation}</p>
+            `;
+            
+            const speakButton = card.querySelector('.speak-button');
+            speakButton.addEventListener('click', () => speak(word));
+            
+            return card;
+        }
+
+        function speak(word) {
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.7;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function renderWordCards() {
+            const wordGrid = document.getElementById('wordGrid');
+            wordGrid.innerHTML = '';
+            frenchWords[currentLevel].forEach(({ word, translation }) => {
+                const card = createWordCard(word, translation);
+                wordGrid.appendChild(card);
+            });
+            document.getElementById('currentLevel').textContent = currentLevel + 1;
+            updateButtonStates();
+        }
+
+        function updateButtonStates() {
+            const backButton = document.getElementById('backButton');
+            const prevLevelButton = document.getElementById('prevLevelButton');
+            const nextButton = document.getElementById('nextButton');
+            backButton.disabled = currentLevel === 0;
+            prevLevelButton.disabled = currentLevel === 0;
+            nextButton.textContent = quizStarted ? 'Finish Quiz' : 'Start Quiz';
+        }
+
+        function goToLevelsPage() {
+            alert('This would navigate to the levels page in a full implementation.');
+            // In a real implementation, you would navigate to the levels page here
+        }
+
+        function startQuiz() {
+            quizStarted = true;
+            currentQuizQuestion = 0;
+            quizScore = 0;
+            document.getElementById('wordGrid').style.display = 'none';
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('quizResult').textContent = '';
+            document.getElementById('currentScore').textContent = '';
+            renderQuizQuestion();
+            updateButtonStates();
+        }
+
+        function renderQuizQuestion() {
+            const currentWords = frenchWords[currentLevel];
+            const question = currentWords[Math.floor(Math.random() * currentWords.length)];
+            const options = [question.word];
+            
+            while (options.length < 4) {
+                const randomWord = currentWords[Math.floor(Math.random() * currentWords.length)].word;
+                if (!options.includes(randomWord)) {
+                    options.push(randomWord);
+                }
+            }
+            
+            // Shuffle options
+            options.sort(() => Math.random() - 0.5);
+
+            document.getElementById('quizQuestion').textContent = `What is the French word for "${question.translation}"?`;
+            const quizOptions = document.getElementById('quizOptions');
+            quizOptions.innerHTML = '';
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'quiz-option';
+                button.textContent = option;
+                button.addEventListener('click', () => checkAnswer(option, question.word));
+                quizOptions.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedOption, correctOption) {
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.disabled = true;
+                if (option.textContent === correctOption) {
+                    option.classList.add('correct');
+                } else if (option.textContent === selectedOption && selectedOption !== correctOption) {
+                    option.classList.add('incorrect');
+                }
+            });
+
+            if (selectedOption === correctOption) {
+                quizScore++;
+            }
+
+            document.getElementById('currentScore').textContent = `Current Score: ${quizScore}/${currentQuizQuestion + 1}`;
+
+            setTimeout(() => {
+                currentQuizQuestion++;
+                if (currentQuizQuestion < 10) {
+                    renderQuizQuestion();
+                } else {
+                    finishQuiz();
+                }
+            }, 1500);
+        }
+
+        function finishQuiz() {
+            quizStarted = false;
+            document.getElementById('wordGrid').style.display = 'grid';
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('quizResult').textContent = `Quiz completed! Your score: ${quizScore}/10`;
+            updateButtonStates();
+        }
+
+        function goToNextLevel() {
+            if (currentLevel < frenchWords.length - 1) {
+                currentLevel++;
+                renderWordCards();
+            } else {
+                alert('Congratulations! You have completed all levels.');
+            }
+        }
+
+        function goToPreviousLevel() {
+            if (currentLevel > 0) {
+                currentLevel--;
+                renderWordCards();
+            }
+        }
+
+        document.getElementById('backButton').addEventListener('click', goToLevelsPage);
+        document.getElementById('nextButton').addEventListener('click', () => {
+            if (!quizStarted) {
+                startQuiz();
+            } else {
+                finishQuiz();
+                goToNextLevel();
+            }
+        });
+        document.getElementById('prevLevelButton').addEventListener('click', goToPreviousLevel);
+
+        renderWordCards();
+    </script>
+</body>
+</html>

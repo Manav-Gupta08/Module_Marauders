@@ -1,15 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Login.css">
+    <title>Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Login</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .backimg {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            z-index: -1;
+        }
+        .backimg img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        .page-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .navbar-container {
+            background-color: white;
+            width: 100%;
+            z-index: 2;
+        }
+        .navbar-logo {
+            height: 100px;
+            width: auto;
+        }
+        .navbar-nav {
+            gap: 1rem;
+        }
+        .nav-item {
+            font-size: 25px;
+        }
+        .login {
+            background-color: white;
+            margin: 5rem auto;
+            width: 90%;
+            max-width: 400px;
+            z-index: 3;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .login-heading {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .input input {
+            border: 2px solid rgba(155, 150, 150, 0.898);
+            border-radius: 6px;
+            width: 100%;
+            height: 40px;
+            padding: 5px;
+            margin-bottom: 1rem;
+        }
+        .forgot {
+            border: none;
+            background-color: transparent;
+            color: #007bff;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+        .forgot:hover {
+            text-decoration: underline;
+        }
+        .submit {
+            width: 100%;
+            height: 3.5rem;
+            margin-top: 1rem;
+            font-size: 1rem;
+            border-radius: 25px;
+            border: none;
+            background-color: #FDCD84;
+        }
+        .submit:hover {
+            background-color: #FFC789;
+        }
+        .divider {
+            text-align: center;
+            position: relative;
+            margin: 1.5rem 0;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 35%;
+            height: 1px;
+            background: gray;
+        }
+        .divider::before {
+            left: 0;
+        }
+        .divider::after {
+            right: 0;
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .fa-facebook, .fa-apple, .fa-google {
+            font-size: 2rem;
+        }
+        .fa-facebook {
+            color: #3b5998;
+        }
+        .fa-apple {
+            color: #000;
+        }
+        .fa-google {
+            background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 2rem 1rem;
+        }
+        .footer a {
+            color: #343a40;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #6c757d;
+        }
+        .footer .social-icons i:hover {
+            color: #343a40;
+        }
+        .password-input-wrapper {
+            position: relative;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .navbar-logo {
+                height: 50px;
+            }
+            .login {
+                margin: 1rem auto;
+                padding: 1.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar-logo {
+                height: 40px;
+            }
+            .login {
+                padding: 1rem;
+            }
+            .submit {
+                height: 3rem;
+            }
+            .fa-facebook, .fa-apple, .fa-google {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
     <div class="backimg">
         <img src="loginbackimg.PNG" alt="Background Image">
@@ -71,11 +246,16 @@
         </div>
 
         <div class="login">
-            <form>
+            <form id="loginForm">
                 <h2 class="login-heading">Log into your Account</h2>
                 <div class="input">
-                    <input type="email" id="Email" name="Email" placeholder="Email">
-                    <input type="password" id="Password" name="Password" placeholder="Password">
+                    <input type="email" id="Email" name="Email" placeholder="Email" required>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="Password" name="Password" placeholder="Password" required>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="form-check mb-3">
                     <input type="checkbox" id="Rem" name="Rem" class="form-check-input">
@@ -85,10 +265,17 @@
                 <button type="submit" class="submit"><b>Sign In With Email</b></button>
                 <p class="divider">or sign in with</p>
                 <div class="icons">
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-apple"></i>
-                    <i class="fab fa-google"></i>
+                    <a href="https://www.facebook.com/login" target="_blank" aria-label="Sign in with Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://appleid.apple.com/auth/authorize" target="_blank" aria-label="Sign in with Apple">
+                        <i class="fab fa-apple"></i>
+                    </a>
+                    <a href="https://accounts.google.com/signin" target="_blank" aria-label="Sign in with Google">
+                        <i class="fab fa-google"></i>
+                    </a>
                 </div>
+                
             </form>
         </div>
 
@@ -114,7 +301,7 @@
                     </div>
                     <div class="col-md-4 text-md-end">
                         <h5>Contact Us</h5>
-                        <p>Email: talktrek.co@gmail.com</p>
+                        <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="255144494e5157404e0b464a654248444c490b464a48">[email&#160;protected]</a></p>
                         <p>Phone: +1 (123) 456-7890</p>
                     </div>
                     <hr>
@@ -128,7 +315,115 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    <script src="Login.js"></script>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.querySelector('#loginForm');
+            const emailInput = document.getElementById('Email');
+            const passwordInput = document.getElementById('Password');
+            const loginButton = document.getElementById('loginButton');
+            const loginContainer = document.getElementById('loginContainer');
+            const profileContainer = document.getElementById('profileContainer');
+            const logoutButton = document.getElementById('logoutButton');
+            const togglePassword = document.querySelector('.toggle-password');
 
+            function validateForm() {
+                let isValid = true;
+                if (!emailInput.value.trim()) {
+                    isValid = false;
+                    showError(emailInput, 'Email is required');
+                } else if (!isValidEmail(emailInput.value)) {
+                    isValid = false;
+                    showError(emailInput, 'Please enter a valid email');
+                } else {
+                    removeError(emailInput);
+                }
+
+                if (!passwordInput.value.trim()) {
+                    isValid = false;
+                    showError(passwordInput, 'Password is required');
+                } else {
+                    removeError(passwordInput);
+                }
+
+                return isValid;
+            }
+
+            function showError(input, message) {
+                const formControl = input.parentElement;
+                const errorElement = formControl.querySelector('.error-message') || document.createElement('div');
+                errorElement.className = 'error-message text-danger';
+                errorElement.textContent = message;
+                if (!formControl.querySelector('.error-message')) {
+                    formControl.appendChild(errorElement);
+                }
+            }
+
+            function removeError(input) {
+                const formControl = input.parentElement;
+                const errorElement = formControl.querySelector('.error-message');
+                if (errorElement) {
+                    formControl.removeChild(errorElement);
+                }
+            }
+
+            function isValidEmail(email) {
+                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (validateForm()) {
+                    simulateLogin();
+                }
+            });
+
+            function simulateLogin() {
+                console.log('Login attempt successful');
+                alert('Login successful!');
+                loginContainer.classList.add('d-none');
+                profileContainer.classList.remove('d-none');
+                loginForm.reset();
+            }
+
+            logoutButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Logout successful');
+                profileContainer.classList.add('d-none');
+                loginContainer.classList.remove('d-none');
+                alert('You have been logged out successfully.');
+            });
+
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function() {
+                    navbarCollapse.classList.toggle('show');
+                });
+            }
+
+            const languageDropdown = document.getElementById('languageDropdown');
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (!this.closest('#profileDropdown')) {
+                        e.preventDefault();
+                        const selectedLanguage = this.textContent;
+                        languageDropdown.textContent = selectedLanguage;
+                        console.log(`Language changed to: ${selectedLanguage}`);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>

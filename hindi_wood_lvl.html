@@ -3,29 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Game Map</title>
-    <link rel="stylesheet" href="hindi_wood_lvl.css">
+    <title>French Learning Adventure Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #e6f3ff, #c1e0ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 1300px;
+            width: 100%;
+            padding: 0rem;
+        }
+        .map-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 12%;
+            height: auto;
+            z-index: 10;
+        }
+        .map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .map-area {
+            position: absolute;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .map-area:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .map-area::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .map-area:hover::after {
+            opacity: 1;
+        }
+        #level1 { top: 7%; left: 42%; width: 6%; height: 0; padding-bottom: 6%; }
+        #level2 { top: 22%; left: 49%; width: 6%; height: 0; padding-bottom: 6%; }
+        #level3 { top: 40%; left: 45%; width: 6%; height: 0; padding-bottom: 6%; }
+        #level4 { top: 50%; left: 35.5%; width: 6%; height: 0; padding-bottom: 6%; }
+        #star { top: 36%; left: 54%; width: 7%; height: 0; padding-bottom: 7%; }
+        #target { top: 67%; left: 49%; width: 7%; height: 0; padding-bottom: 7%; }
+        #next { top: 63%; left: 62%; width: 12%; height: 11%; transform: rotate(-25deg); }
+    </style>
 </head>
 <body>
-    <img src="logo1.png" alt="Logo" class="logo">
-    <div class="map-container">
-        <img src="learnbackimg.png" alt="Game Map" class="map-image" usemap="#game-map">
-        <map name="game-map">
-            <area shape="circle" coords="31%,27%,5%" href="#" alt="Level 1">
-            <area shape="circle" coords="43%,40%,5%" href="#" alt="Level 2">
-            <area shape="circle" coords="38%,55%,5%" href="#" alt="Level 3">
-            <area shape="circle" coords="33%,70%,5%" href="#" alt="Level 4">
-            <area shape="circle" coords="55%,40%,5%" href="#" alt="Star">
-            <area shape="circle" coords="28%,85%,5%" href="#" alt="Target">
-            <area shape="circle" coords="28%,85%,5%" href="#" alt="Next">
-        </map>
-        <a href="#" class="map-area" id="level1" data-title="Level 1"></a>
-        <a href="#" class="map-area" id="level2" data-title="Level 2"></a>
-        <a href="#" class="map-area" id="level3" data-title="Level 3"></a>
-        <a href="#" class="map-area" id="level4" data-title="Level 4"></a>
-        <a href="#" class="map-area" id="star" data-title="Star"></a>
-        <a href="#" class="map-area" id="target" data-title="Target"></a>
-        <a href="hindi_diam_lvl.html" class="map-area" id="next" data-title="Next"></a>
+    <div class="container">
+        <div class="map-container">
+            <a href="Homepage.html">
+                <img src="logo1.png" alt="Logo" class="logo">
+            </a>
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learnbackimg-fHzcaeLsipxdN13BNqykWb3E3KhhcW.png" alt="French Learning Adventure Map" class="map-image">
+            <a href="level1.html" class="map-area" id="level1" data-title="Level 1"></a>
+            <a href="level2.html" class="map-area" id="level2" data-title="Level 2"></a>
+            <a href="level3.html" class="map-area" id="level3" data-title="Level 3"></a>
+            <a href="level4.html" class="map-area" id="level4" data-title="Level 4"></a>
+            <a href="#" class="map-area" id="star" data-title="Quiz"></a>
+            <a href="#" class="map-area" id="target" data-title="Target"></a>
+            <a href="hindi_diam_lvl.html" class="map-area" id="next" data-title="Next Chapter"></a>
+        </div>
     </div>
 </body>
 </html>

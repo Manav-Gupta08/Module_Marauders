@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Learning Adventure - Level 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #e6f3ff, #c1e0ff);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            color: #1e40af;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .french-word {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .speak-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .speak-icon {
+            width: 24px;
+            height: 24px;
+            fill: #3b82f6;
+        }
+        .translation {
+            font-size: 1.125rem;
+            color: #4b5563;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .nav-button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .nav-button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Learn Basic French Words - Level 4</h1>
+        <div id="wordGrid" class="word-grid"></div>
+        <div class="navigation">
+            <a href="hindi_wood_lvl.html" class="nav-button">Back to Map</a>
+            <a href="hindi_wood_lvl.html" class="nav-button">Next Level</a>
+        </div>
+    </div>
+
+    <script>
+        const frenchWords = [
+                { word: 'Épanouissement', translation: 'Fulfillment' },
+                { word: 'Développement durable', translation: 'Sustainable development' },
+                { word: 'Mondialisation', translation: 'Globalization' },
+                { word: 'Apprentissage automatique', translation: 'Machine learning' },
+                { word: 'Cryptomonnaie', translation: 'Cryptocurrency' },
+                { word: 'Réalité augmentée', translation: 'Augmented reality' },
+                { word: 'Biodiversité', translation: 'Biodiversity' },
+                { word: 'Neurosciences', translation: 'Neuroscience' },
+                { word: 'Géopolitique', translation: 'Geopolitics' },
+                { word: 'Entrepreneuriat', translation: 'Entrepreneurship' }
+            ];
+
+        function createWordCard(word, translation) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="card-header">
+                    <span class="french-word">${word}</span>
+                    <button class="speak-button" aria-label="Pronounce ${word}">
+                        <svg class="speak-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5355 8.46448C17.4881 10.4171 17.4881 13.5829 15.5355 15.5355M18.364 5.63599C21.8787 9.15071 21.8787 14.8492 18.364 18.3639M9.88331 16.3571L6.27531 13.6961C6.10493 13.5703 5.89776 13.5 5.68377 13.5H3C2.44772 13.5 2 13.0523 2 12.5V11.5C2 10.9477 2.44772 10.5 3 10.5H5.68377C5.89776 10.5 6.10493 10.4297 6.27531 10.3039L9.88331 7.64288C10.5665 7.13404 11.5 7.61333 11.5 8.45774V15.5423C11.5 16.3867 10.5665 16.8659 9.88331 16.3571Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="translation">${translation}</p>
+            `;
+            
+            const speakButton = card.querySelector('.speak-button');
+            speakButton.addEventListener('click', () => speak(word));
+            
+            return card;
+        }
+
+        function speak(word) {
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.7;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function renderWordCards() {
+            const wordGrid = document.getElementById('wordGrid');
+            frenchWords.forEach(({ word, translation }) => {
+                const card = createWordCard(word, translation);
+                wordGrid.appendChild(card);
+            });
+        }
+
+        renderWordCards();
+    </script>
+</body>
+</html>
